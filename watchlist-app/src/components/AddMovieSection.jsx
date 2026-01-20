@@ -1,36 +1,70 @@
-export default function AddMovieSection() {
+import { useState } from "react";
+import TextInput from "./TextInput";
+import SelectInput from "./SelectInput";
+// Creating array list for genre options
+const GENRES = [
+  "Action",
+  "Adventure",
+  "Comedy",
+  "Drama",
+  "Fantasy",
+  "Horror",
+  "Mystery",
+  "Romance",
+  "Sci-Fi",
+  "Thriller",
+  "Animation",
+  "Crime",
+  "Documentary",
+  "Family",
+  "Musical",
+  "War",
+];
+export default function AddMovieSection({ onAddMovie }) {
+  // useState for form data colliction
+  const [value, setValue] = useState("");
+  const [genre, setGenre] = useState("Family");
+  // useState for data validation error
+  const [error, setError] = useState("");
+
+  // create function to excute when form submited
+  function addMovieSubmit() {
+    // validate user input
+    const cleanValue = value.trim();
+    if (!cleanValue) {
+      return setError("Movie name is required");
+    }
+    // passing data from child to parent
+    onAddMovie({
+      title: cleanValue,
+      genre: genre,
+    });
+    // cleaning the the filds ofter of fatching data
+    setError("");
+    setValue("");
+    setGenre("Family");
+  }
   return (
     <div className="add-movie-section">
       <div className="add-movie-section-title">Add Movie</div>
       <div className="add-movie-section-form">
+        <TextInput
+          value={value}
+          onChange={setValue}
+          placeholder={"Movie Name..."}
+        ></TextInput>
+        <SelectInput
+          value={genre}
+          onChange={setGenre}
+          options={GENRES}
+        ></SelectInput>
         <div className="add-movie-section-form-column">
-          <input type="text" placeholder="Title" className="input" required />
-        </div>
-        <div className="add-movie-section-form-column">
-          <select className="input" required>
-            <option value="">Select a genre</option>
-            <option value="Action">Action</option>
-            <option value="Adventure">Adventure</option>
-            <option value="Animation">Animation</option>
-            <option value="Comedy">Comedy</option>
-            <option value="Crime">Crime</option>
-            <option value="Documentary">Documentary</option>
-            <option value="Drama">Drama</option>
-            <option value="Family">Family</option>
-            <option value="Fantasy">Fantasy</option>
-            <option value="Horror">Horror</option>
-            <option value="Mystery">Mystery</option>
-            <option value="Musical">Musical</option>
-            <option value="Romance">Romance</option>
-            <option value="Sci-Fi">Sci-Fi</option>
-            <option value="Thriller">Thriller</option>
-            <option value="War">War</option>
-          </select>
-        </div>
-        <div className="add-movie-section-form-column">
-          <button className="add-movie-section-button">Add Movie</button>
+          <button className="add-movie-section-button" onClick={addMovieSubmit}>
+            Add Movie
+          </button>
         </div>
       </div>
+      {error ? <div>{error}</div> : null}
     </div>
   );
 }
