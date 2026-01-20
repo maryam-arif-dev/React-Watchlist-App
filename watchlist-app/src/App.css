@@ -1,0 +1,247 @@
+/* =======================
+   Global Styles
+======================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #0f172a; /* dark blue background */
+  color: #f8fafc; /* light text */
+}
+
+.page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* =======================
+   Header Section
+======================= */
+.header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.header-title {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.header-subtitle {
+  font-size: 1rem;
+  color: #94a3b8; /* soft gray */
+}
+
+/* =======================
+   Add Movie Section
+======================= */
+.add-movie-section {
+  background-color: #1e293b; /* card color */
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 30px;
+}
+
+.add-movie-section-title {
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.add-movie-section-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.add-movie-section-form-column {
+  flex: 1 1 150px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+}
+
+.add-movie-section-button {
+  padding: 10px 15px;
+  border-radius: 8px;
+  border: none;
+  background-color: #22c55e; /* green accent */
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.add-movie-section-button:hover {
+  background-color: #16a34a;
+}
+
+/* =======================
+   Live Stats Section
+======================= */
+.live-stat-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.live-stat-column {
+  flex: 1 1 120px;
+  text-align: center;
+  background-color: #1e293b;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.live-stat-all,
+.live-stat-watched,
+.live-stat-unwatched {
+  font-weight: bold;
+  display: block;
+}
+
+/* =======================
+   Filter Section
+======================= */
+.filter-section {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.filter-button {
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #3b82f6; /* blue accent */
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.filter-button:hover {
+  background-color: #2563eb;
+}
+
+/* =======================
+   Movie List Section
+======================= */
+.movie-list {
+  background-color: #1e293b;
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+.movie-list-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.movie-list-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.movie-list-body-column {
+  flex: 1 1 150px;
+}
+
+.movie-list-details .genre,
+.movie-list-details .status {
+  font-size: 0.95rem;
+  margin-bottom: 5px;
+}
+
+.movie-list-buttons button {
+  margin-right: 5px;
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.toggle-button {
+  background-color: #facc15; /* yellow */
+  color: #000;
+}
+
+.toggle-button:hover {
+  background-color: #eab308;
+}
+
+.delete-button {
+  background-color: #ef4444; /* red */
+  color: #fff;
+}
+
+.delete-button:hover {
+  background-color: #dc2626;
+}
+
+/* =======================
+   Footer Section
+======================= */
+.footer {
+  text-align: center;
+  margin-top: 30px;
+  padding: 15px;
+  background-color: #1e293b;
+  border-radius: 12px;
+}
+
+.footer-title {
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.footer-subtitle {
+  font-size: 0.95rem;
+  color: #94a3b8;
+}
+
+/* =======================
+   Responsive Design
+======================= */
+@media (max-width: 768px) {
+  .add-movie-section-form {
+    flex-direction: column;
+  }
+
+  .movie-list-body {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .live-stat-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .filter-section {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
