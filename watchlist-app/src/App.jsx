@@ -83,7 +83,7 @@ function App() {
         onDeleteMovie={deleteMovie}
       ></MovieListSection>
       {/* Footer Section */}
-      <Footer></Footer>
+      <Footer movies={movies}></Footer>
     </div>
   );
 }
