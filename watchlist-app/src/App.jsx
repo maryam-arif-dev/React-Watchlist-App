@@ -45,6 +45,15 @@ function App() {
   const deleteMovie = (id) => {
     setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== id));
   };
+  // Filtering data: ALL | Watched | Unwatched
+  // Filter State
+  const [filter, setFilter] = useState("all");
+  // Filter Logic - Drived State
+  const filteredMovies = movies.filter((movie) => {
+    if (filter === "watched") return movie.status === true;
+    if (filter === "unwatched") return movie.status === false;
+    return true;
+  });
 
   return (
     <div className="page">
@@ -55,10 +64,13 @@ function App() {
       {/* Live Stats Section */}
       <LiveStatsSection></LiveStatsSection>
       {/* Filter Section */}
-      <FilterSection></FilterSection>
+      <FilterSection
+        onFilterChange={setFilter}
+        activeFilter={filter}
+      ></FilterSection>
       {/* Movie List Card Section */}
       <MovieListSection
-        movies={movies}
+        movies={filteredMovies}
         onToggleWatched={toggleWatched}
         onDeleteMovie={deleteMovie}
       ></MovieListSection>
