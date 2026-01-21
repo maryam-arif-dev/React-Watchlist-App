@@ -113,6 +113,9 @@ body {
   font-weight: bold;
   display: block;
 }
+.live-stat-span {
+  display: inline-block;
+}
 
 /* =======================
    Filter Section

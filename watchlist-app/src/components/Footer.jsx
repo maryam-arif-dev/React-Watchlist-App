@@ -1,6 +1,9 @@
 export default function Footer({ movies }) {
   return (
     <footer className="footer">
+      {/* Conditional Rendering
+          total movies = 0 | total movies > 0
+       */}
       {movies.length == 0 ? (
         <>
           <div className="footer-title">🎬 No movies yet</div>
