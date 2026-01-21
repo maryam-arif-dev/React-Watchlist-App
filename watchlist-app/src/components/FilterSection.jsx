@@ -6,7 +6,7 @@ export default function FilterSection({ activeFilter, onFilterChange }) {
           className={`filter-button ${activeFilter === "all" ? "active" : ""}`}
           onClick={() => onFilterChange("all")}
         >
-          All
+          🎬 All
         </button>
       </div>
       <div className="filter-column">
@@ -14,7 +14,7 @@ export default function FilterSection({ activeFilter, onFilterChange }) {
           className={`filter-button ${activeFilter == "watched" ? "active" : ""}`}
           onClick={() => onFilterChange("watched")}
         >
-          Watched
+          ✅ Watched
         </button>
       </div>
       <div className="filter-column">
@@ -22,7 +22,7 @@ export default function FilterSection({ activeFilter, onFilterChange }) {
           className={`filter-button ${activeFilter == "unwatched" ? "active" : ""}`}
           onClick={() => onFilterChange("unwatched")}
         >
-          Unwatched
+          ⏳ Unwatched
         </button>
       </div>
     </div>

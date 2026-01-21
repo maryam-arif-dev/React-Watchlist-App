@@ -67,7 +67,7 @@ export default function AddMovieSection({ onAddMovie }) {
           </button>
         </div>
       </div>
-      {error ? <div>{error}</div> : null}
+      {error ? <div className="error">{error}</div> : null}
     </div>
   );
 }
