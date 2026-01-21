@@ -54,7 +54,11 @@ function App() {
     if (filter === "unwatched") return movie.status === false;
     return true;
   });
-
+  // Live Stats | show total movies, watched, and unwatched counts dynamically.
+  const totalMovies = movies.length;
+  const watchedMoviesCount = movies.filter((count) => count.status).length;
+  const unwatchedMoviesCount = totalMovies - watchedMoviesCount;
+  // JSX Code
   return (
     <div className="page">
       {/* Header Section */}
@@ -62,7 +66,11 @@ function App() {
       {/* Add Movie Section */}
       <AddMovieSection onAddMovie={handleAddMovie}></AddMovieSection>
       {/* Live Stats Section */}
-      <LiveStatsSection></LiveStatsSection>
+      <LiveStatsSection
+        total={totalMovies}
+        watched={watchedMoviesCount}
+        unwatched={unwatchedMoviesCount}
+      ></LiveStatsSection>
       {/* Filter Section */}
       <FilterSection
         onFilterChange={setFilter}

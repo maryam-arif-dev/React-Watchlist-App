@@ -1,14 +1,14 @@
-export default function LiveStatsSection() {
+export default function LiveStatsSection({ total, watched, unwatched }) {
   return (
     <div className="live-stat-section">
       <div className="live-stat-column">
-        <span className="live-stat-all"> 🎬 Total: 10</span>
+        <span className="live-stat-all"> 🎬 Total: {total}</span>
       </div>
       <div className="live-stat-column">
-        <span className="live-stat-watched"> ✅ Watched: 04</span>
+        <span className="live-stat-watched"> ✅ Watched: {watched}</span>
       </div>
       <div className="live-stat-column">
-        <span className="live-stat-unwatched"> ⏳ Unwatched: 06</span>
+        <span className="live-stat-unwatched"> ⏳ Unwatched: {unwatched}</span>
       </div>
     </div>
   );
