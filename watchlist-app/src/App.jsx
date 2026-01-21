@@ -19,13 +19,13 @@ function App() {
       id: createID(),
       title: "Inception",
       genre: "Sci-Fi, Thriller",
-      status: "Watched",
+      status: true,
     },
     {
       id: createID(),
       title: "The Dark Knight",
       genre: "Action, Crime, Drama",
-      status: "Unwatched",
+      status: false,
     },
   ]);
   // getting from form and pass to list
@@ -33,6 +33,19 @@ function App() {
     const newMovie = { id: createID(), ...data };
     setMovies((previous) => [newMovie, ...previous]);
   }
+  // Mark a movie from list to watchd or unwatched
+  const toggleWatched = (id) => {
+    setMovies((prevMovies) =>
+      prevMovies.map((movie) =>
+        movie.id === id ? { ...movie, status: !movie.status } : movie,
+      ),
+    );
+  };
+  // Delete a movie from list
+  const deleteMovie = (id) => {
+    setMovies((prevMovies) => prevMovies.filter((movie) => movie.id !== id));
+  };
+
   return (
     <div className="page">
       {/* Header Section */}
@@ -44,7 +57,11 @@ function App() {
       {/* Filter Section */}
       <FilterSection></FilterSection>
       {/* Movie List Card Section */}
-      <MovieListSection movies={movies}></MovieListSection>
+      <MovieListSection
+        movies={movies}
+        onToggleWatched={toggleWatched}
+        onDeleteMovie={deleteMovie}
+      ></MovieListSection>
       {/* Footer Section */}
       <Footer></Footer>
     </div>

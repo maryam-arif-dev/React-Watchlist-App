@@ -26,6 +26,7 @@ export default function AddMovieSection({ onAddMovie }) {
   const [genre, setGenre] = useState("Family");
   // useState for data validation error
   const [error, setError] = useState("");
+  const [status, setStatus] = useState(false);
 
   // create function to excute when form submited
   function addMovieSubmit() {
@@ -38,11 +39,13 @@ export default function AddMovieSection({ onAddMovie }) {
     onAddMovie({
       title: cleanValue,
       genre: genre,
+      status: status,
     });
     // cleaning the the filds ofter of fatching data
     setError("");
     setValue("");
     setGenre("Family");
+    setStatus(false);
   }
   return (
     <div className="add-movie-section">
